@@ -13,3 +13,17 @@
 Виводимо значення sum на екран.
 '''
 
+n = int(input("n ="))
+
+mas = []
+
+while n != 0:
+    mas.append(n % 10)
+    n = n // 10
+
+sum = 0
+
+for i in mas:
+    sum = sum + i
+
+print(sum)
