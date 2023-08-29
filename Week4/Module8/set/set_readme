@@ -1,0 +1,106 @@
+# 8.4 Множини
+Множина– це НЕ впорядкований набір різнорідних
+даних, який не містить дублікатів.
+Множина НЕ може містити дублікати
+Множина - динамічна структура
+Основні етапи роботи з множинами:
+    ● Оголошення та ініціалізація
+    ● Опрацювання
+    ● Вивід результату
+Оголошення множини:
+    <ім’я> = {<елемент1>, <елемент2>} або
+    <ім’я> = set((<елемент1>, <елемент2>))
+Приклад:
+    countries = {‘Ukraine’, ‘Poland’…} або
+    countries = set((‘Ukraine’, ‘Poland’…))
+
+-- Додавання елементів до множини
+    Загальний вигляд додавання елемента до множини:
+        <ім’я множини>.add(<елемент>)
+    Наприклад:
+        countries = {‘Ukraine’, ‘Poland’}
+        print(countries)
+        >> {'Poland', 'Ukraine'}
+        
+        uk = “Great Britain”
+        countries.add(uk)
+        print(countries)
+        >> {'Poland', 'Ukraine', 'Great Britain'}
+        
+        countries.add(uk)
+        print(countries)
+        >> {'Poland', 'Ukraine', 'Great Britain'}
+
+-- Доступ до елемента множини
+    Отримати доступ до певного елемента множини
+    неможливо.
+    Для перевірки чи елемент присутній у множині
+    використовують оператор - in
+    Наприклад:
+        countries = {‘Ukraine’, ‘Poland’}
+        print(countries)
+            >> {‘Ukraine’, ‘Poland’}
+        print(‘Ukraine’ in countries)
+            >> True
+        print(‘US’ in countries)
+            >> False
+
+-- Вилучення елементів множини
+    Можливе вилучення лише за значенням елемента
+    Наприклад:
+        countries = {'Ukraine', 'Poland', 'Сhina'}
+        print(countries)
+            >> {'Ukraine', 'Сhina', 'Poland'}
+        countries.remove( 'Сhina')
+        countries.discard( 'Austria')
+        print(countries)
+            >> {'Ukraine', 'Poland'}
+
+-- Опрацювання множин
+    ● об’єднання (|)
+        Оператор |
+            об’єднує дві множини і повертає нову
+            множину, яка включає всі елементи
+            обидвох множин.
+            countries_friends = { 'Ukraine',
+            'Poland'}
+            countries_new_friends = { 'Great
+            Britain', 'USA'}
+            print(countries_friends |
+            countries_new_friends )
+            >> {'USA', 'Great Britain',
+            'Ukraine', 'Poland'}
+    ● перетин (&)
+        Оператор &
+            повертає нову множину із значеннями, які
+            належать одночасно обом множинам.
+            countries_friends = { 'Ukraine',
+            'Poland'}
+            countries_new_friends = { 'Poland',
+            'Great Britain' , 'USA'}
+            print(countries_friends &
+            countries_new_friends )
+            >> {'Poland'}
+    ● різниця (-)
+        Оператор –
+            повертає множину із елементами, які є в
+            першій множині, але немає в іншій.
+            countries_friends = { 'Ukraine',
+            'Poland', 'Austria '}
+            countries_new_friends = { 'Poland',
+            'Great Britain' , 'USA'}
+            print(countries_friends -
+            countries_new_friends )
+            >> {'Ukraine', 'Austria'}
+
+Підсумки
+    Множина – це НЕ впорядкований набір різнорідних даних, який не містить дублікатів
+    Множина - динамічна структура.
+    Основні етапи роботи з множинами:
+        ● Оголошення та ініціалізація
+        ● Опрацювання
+        ● Вивід результату
+    Операції над множинами
+        ● Об’єднання (|)
+        ● Перетин (&)
+        ● Різниця (-)
