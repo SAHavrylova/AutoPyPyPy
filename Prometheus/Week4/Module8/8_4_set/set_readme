@@ -92,6 +92,9 @@
             print(countries_friends -
             countries_new_friends )
             >> {'Ukraine', 'Austria'}
+    ● сіметрична різниця (^) або symmetric_difference
+            set3 = set1 ^ set2
+            set3 = set1.symmetric_difference(set2)
 
 Підсумки
     Множина – це НЕ впорядкований набір різнорідних даних, який не містить дублікатів
