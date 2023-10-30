@@ -28,3 +28,10 @@ class GitHub:
         body = r.json()
 
         return body
+    
+    def labels(self, owner, repo):
+        r = requests.get(f"https://api.github.com/repos/{owner}/{repo}/labels")
+        body = r.json()
+        print(body)
+
+        return body

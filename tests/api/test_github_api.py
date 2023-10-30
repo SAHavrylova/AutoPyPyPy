@@ -39,10 +39,19 @@ def test_emoji_exist(github_api):
     emoji = github_api.emojis()
     assert emoji
 
-@pytest.mark.myapi 
+@pytest.mark.myapi
 def test_emoji_giraffe_exist(github_api):
     emoji = github_api.emojis()
     assert "giraffe" in emoji
 
+@pytest.mark.myapi
+def test_emoji_dias_not_exist(github_api):
+    emoji_response = github_api.emojis()
+    assert "dias" not in emoji_response
+
+@pytest.mark.myapi
+def test_label_exists(github_api):
+    label = github_api.labels("SAHavrylova", "AutoPyPyPy")
+    assert label
 
 
