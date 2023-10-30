@@ -28,3 +28,21 @@ def test_repo_cannot_be_found(github_api):
 def test_repo_with_single_char_be_found(github_api):
     r = github_api.search_repo("s")
     assert r["total_count"] !=0
+
+@pytest.mark.myapi
+def test_branches_exist(github_api):
+    branches = github_api.list_branches("SAHavrylova", "AutoPyPyPy")
+    assert branches
+
+@pytest.mark.myapi
+def test_emoji_exist(github_api):
+    emoji = github_api.emojis()
+    assert emoji
+
+@pytest.mark.myapi 
+def test_emoji_giraffe_exist(github_api):
+    emoji = github_api.emojis()
+    assert "giraffe" in emoji
+
+
+

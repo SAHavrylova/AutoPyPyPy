@@ -16,3 +16,15 @@ class GitHub:
         body = r.json()
 
         return body
+
+    def list_branches(self, owner, repo):
+        r = requests.get(f"https://api.github.com/repos/{owner}/{repo}/branches")
+        body = r.json()
+
+        return body
+    
+    def emojis(self):
+        r = requests.get(f"https://api.github.com/emojis")
+        body = r.json()
+
+        return body
