@@ -46,7 +46,7 @@ def test_product_insert():
 
 
 @pytest.mark.database
-def test_product_insert():
+def test_data():
     db = Database()
     db.insert_product(99, 'тестові', 'дані', 999)
     db.delete_product_by_id(99)
