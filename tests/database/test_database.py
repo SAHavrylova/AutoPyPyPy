@@ -69,8 +69,9 @@ def test_detailed_orders():
     assert orders[0][2] == "солодка вода"
     assert orders[0][3] == "з цукром" 
 
-@pytest.mark.database
-def test_get_user_address_vinn_not_exists():
+@pytest.mark.mydatabase
+def test_check_postal_code_3127():
     db = Database()
-    address = db.get_user_address_by_name
-    
+    user_address = db.get_address_by_postal_code("3127")
+
+    assert user_address == []

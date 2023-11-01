@@ -14,19 +14,13 @@ class Database():
         print(f"Connected succesfully. SQLite Database Version is {record}")
 
     def get_all_users(self):
-        query = "SELECT name, address, city FROM customers"
+        query = "SELECT name, address, city, postalCode FROM customers"
         self.cursor.execute(query)
         record = self.cursor.fetchall()
         return record
     
     def get_user_address_by_name(self, name):
         query = f"SELECT address, city, postalCode, country FROM customers WHERE name = '{name}'"
-        self.cursor.execute(query)
-        record = self.cursor.fetchall()
-        return record
-    
-    def get_user_address_by_address(self, address):
-        query = f"SELECT address, city, postalCode, country FROM customers WHERE address = '{address}'"
         self.cursor.execute(query)
         record = self.cursor.fetchall()
         return record
@@ -59,6 +53,12 @@ class Database():
             FROM orders \
             JOIN customers ON orders.customer_id = customers.id \
             JOIN products ON orders.product_id = products.id"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
+    def get_address_by_postal_code(self, postalCode):
+        query = f"SELECT address, city, postalCode, country FROM customers WHERE address = '{postalCode}'"
         self.cursor.execute(query)
         record = self.cursor.fetchall()
         return record

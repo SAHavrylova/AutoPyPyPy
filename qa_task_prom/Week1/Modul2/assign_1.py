@@ -6,7 +6,7 @@ rectangle_area = length * width
 R = 2
 circle_length = 2 * pi * R
 
-print("Число Рі", pi)
+print("Число Pi", pi)
 print("Ім'я героя", name)
 print("Довжина", length)
 print("Ширина", width)
