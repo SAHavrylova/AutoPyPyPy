@@ -29,27 +29,27 @@ def test_repo_with_single_char_be_found(github_api):
     r = github_api.search_repo("s")
     assert r["total_count"] !=0
 
-@pytest.mark.myapi
+@pytest.mark.api
 def test_branches_exist(github_api):
     branches = github_api.list_branches("SAHavrylova", "AutoPyPyPy")
     assert branches
 
-@pytest.mark.myapi
+@pytest.mark.api
 def test_emoji_exist(github_api):
     emoji = github_api.emojis()
     assert emoji
 
-@pytest.mark.myapi
+@pytest.mark.api
 def test_emoji_giraffe_exist(github_api):
     emoji = github_api.emojis()
     assert "giraffe" in emoji
 
-@pytest.mark.myapi
+@pytest.mark.api
 def test_emoji_dias_not_exist(github_api):
     emoji_response = github_api.emojis()
     assert "dias" not in emoji_response
 
-@pytest.mark.myapi
+@pytest.mark.api
 def test_label_exists(github_api):
     label = github_api.labels("SAHavrylova", "AutoPyPyPy")
     assert label
