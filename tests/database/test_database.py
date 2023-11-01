@@ -68,3 +68,9 @@ def test_detailed_orders():
     assert orders[0][1] == "Sergii"
     assert orders[0][2] == "солодка вода"
     assert orders[0][3] == "з цукром" 
+
+@pytest.mark.database
+def test_get_user_address_vinn_not_exists():
+    db = Database()
+    address = db.get_user_address_by_name
+    

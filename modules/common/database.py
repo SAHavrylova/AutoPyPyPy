@@ -25,6 +25,12 @@ class Database():
         record = self.cursor.fetchall()
         return record
     
+    def get_user_address_by_address(self, address):
+        query = f"SELECT address, city, postalCode, country FROM customers WHERE address = '{address}'"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
     def update_product_qnt_by_id(self, product_id, qnt):
         query = f"UPDATE products SET quantity = {qnt} WHERE id = {product_id}"
         self.cursor.execute(query)
