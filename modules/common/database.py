@@ -14,7 +14,7 @@ class Database():
         print(f"Connected succesfully. SQLite Database Version is {record}")
 
     def get_all_users(self):
-        query = "SELECT name, address, city, postalCode FROM customers"
+        query = "SELECT name, address, city FROM customers"
         self.cursor.execute(query)
         record = self.cursor.fetchall()
         return record
@@ -47,7 +47,7 @@ class Database():
         self.cursor.execute(query)
         self.connection.commit()
     
-    def get_deteiled_orders(self):
+    def get_detailed_orders(self):
         query = "SELECT orders.id, customers.name, products.name, \
             products.description, orders.order_date \
             FROM orders \
@@ -57,8 +57,51 @@ class Database():
         record = self.cursor.fetchall()
         return record
     
-    def get_address_by_postal_code(self, postalCode):
-        query = f"SELECT address, city, postalCode, country FROM customers WHERE address = '{postalCode}'"
+    def get_all_code(self):
+        query = "SELECT postalCode FROM customers"
         self.cursor.execute(query)
         record = self.cursor.fetchall()
         return record
+    
+    def get_address_by_postal_code(self, postalCode):
+        query = f"SELECT address, postalCode FROM customers WHERE postalCode = '{postalCode}'"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record 
+      
+    def get_all_products(self):
+        query = "SELECT * FROM products"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
+    def insert_postal_code_to_customer(self, id, city, postalCode, country):
+        query = f"INSERT OR REPLACE INTO customers (id, city, postalCode, country)\
+            VALUES ({id}, '{city}', '{postalCode}', '{country}')"
+        self.cursor.execute(query)
+        self.connection.commit()
+    
+    def get_all_customers_id(self):
+        query = "SELECT id FROM customers"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
+    def get_user_city_and_postalCode(self, city, postalCode):
+        query = f"SELECT city, postalCode FROM customers WHERE city = '{city}' AND postalCode = '{postalCode}'"
+        self.cursor.execute(query)
+        record = self.cursor.fetchall()
+        return record
+    
+    def delete_code_by_id(self, id):
+        query = f"DELETE FROM customers WHERE id = {id}"
+        self.cursor.execute(query)
+        self.connection.commit()
+    
+    def update_postal_code_by_city_and_id(self, id, city, postalCode):
+        query = f"UPDATE customers SET postalCode = '{postalCode}' WHERE id = {id} AND city = '{city}'"
+        self.cursor.execute(query)
+        self.connection.commit()
+    
+
+    
