@@ -31,7 +31,7 @@ def test_check_incorrect_username():
     #Емулюємо клік лівою кнопкою миші
     btn_elem.click()
 
-    #Перевіряємо що назва сторінки такаб яку ми очікуємо
+    #Перевіряємо що назва сторінки така яку ми очікуємо
     assert driver.title == "Sign in to GitHub · GitHub"
 
     # Закриваємо браузер

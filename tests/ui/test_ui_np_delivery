@@ -1,0 +1,24 @@
+from modules.ui.page_objects.delivery_cost import DeliveryCost 
+import pytest
+
+@pytest.mark.mui
+def test_check_delivery_cost():
+    delivery_cost = DeliveryCost()
+
+    #Open page https://novaposhta.ua/delivery
+    delivery_cost.go_to()
+
+    #Check page title
+    delivery_cost.check_page_title("Вартість доставки")
+
+    #Enter all inputs
+    delivery_cost.route_sender("Вінниця")
+    recipient_text = delivery_cost.route_recipient()
+    assert recipient_text == "Львів"
+    delivery_cost.place_character(2, 14, 10, 50, 60, 70)
+
+    delivery_cost.btn_submit()
+
+    assert delivery_cost.check_results("Розрахункова вартість доставки")
+
+    delivery_cost.close()
