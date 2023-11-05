@@ -2,7 +2,7 @@ from modules.ui.page_objects.delivery_cost import DeliveryCost
 import pytest
 import time
 
-@pytest.mark.mui
+@pytest.mark.ui
 def test_check_delivery_cost():
     delivery_cost = DeliveryCost()
 
